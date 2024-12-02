@@ -9,6 +9,10 @@
 > images (<img>)
 > listes (<ul>, <ol>) -->
 
+    <!-- • required : Le champ ne peut pas être vide.
+    • pattern : Valide selon une expression régulière.
+    • maxlength et minlength : Longueur minimale et maximale. -->
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -24,6 +28,27 @@
         <main>
             <p>Ceci est un paragraphe.</p>
         </main>
+        <!-- Le but de cette partie est de récupérer un nom et une adresse email -->
+        <form action="/submit" method="post">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Envoyer</button>
+        </form>
+        <!-- Le but de cette partie de code est de créer un compte avec un mot de passe -->
+        <form action="/submit" method="post">
+            <label for="username">Nom d'utilisateur :</label>
+            <!-- Ce bout de code prend en compte un username composer de lettres et de chiffre -->
+            <input type="text" id="username" name="username" pattern="^[A-Za-z0-9_]{5,15}$"
+            required>
+            <small>5-15 caractères, uniquement lettres, chiffres ou underscore.</small>
+            <label for="password">Mot de passe :</label>
+            <!-- Ce bout de code prend en compte un pasword composer de huit carractère ou plus -->
+            <input type="password" id="password" name="password" minlength="8" required>
+            <button type="submit">Créer un compte</button>
+        </form>
+        <!-- Le but de cette partie de code est de déposer un copyright -->
         <footer>
             <p>&copy; 2024 MonSite</p>
         </footer>
